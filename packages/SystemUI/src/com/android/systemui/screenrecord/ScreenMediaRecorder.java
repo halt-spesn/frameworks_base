@@ -124,9 +124,11 @@ public class ScreenMediaRecorder {
         DisplayMetrics metrics = new DisplayMetrics();
         WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         wm.getDefaultDisplay().getRealMetrics(metrics);
-        int screenWidth = 720
-        int screenHeight = 1280
-        int refereshRate = 60
+        int screenWidth = 720;
+        int screenHeight = 1600;
+        int refereshRate = 60;
+        int vidBitRate = screenHeight * screenWidth * refereshRate / VIDEO_FRAME_RATE
+                * VIDEO_FRAME_RATE_TO_RESOLUTION_RATIO;
         mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         mMediaRecorder.setVideoEncodingProfileLevel(
                 MediaCodecInfo.CodecProfileLevel.AVCProfileMain,
